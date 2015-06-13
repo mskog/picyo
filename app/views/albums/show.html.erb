@@ -1,0 +1,5 @@
+<% @album.images.order(id: :desc).limit(25).each do |image| %>
+  <%= link_to raw_image_url(image.hash_filename), target: '_blank' do %>
+    <img src='<%= "#{ENV['THUMBNAIL_URL']}/250x0/#{image.hash_filename}"%>'/>
+  <% end %>
+<% end %>

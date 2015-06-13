@@ -1,0 +1,9 @@
+---
+:concurrency: 10
+:queues:
+  - default
+  - images_upload
+
+:limits:
+  images_upload: 1
+
