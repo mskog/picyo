@@ -201,6 +201,8 @@ GEM
       slop (~> 3.4)
     pry-rails (0.3.4)
       pry (>= 0.9.10)
+    pundit (1.0.1)
+      activesupport (>= 3.0.0)
     rack (1.6.1)
     rack-cors (0.4.0)
     rack-protection (1.5.3)
@@ -352,6 +354,7 @@ DEPENDENCIES
   mascherano
   pg (~> 0.18.1)
   pry-rails (~> 0.3.2)
+  pundit (~> 1.0.1)
   rack-cors (~> 0.4.0)
   rails (= 4.2.0)
   redis (~> 3.2.1)

@@ -24,6 +24,7 @@ module Picyo
     config.active_record.raise_in_transactional_callbacks = true
 
     config.autoload_paths += %W(#{config.root}/app/business_logic)
+    config.autoload_paths += %W(#{config.root}/app/policies)
     config.active_job.queue_adapter = :inline
 
     config.middleware.insert_before 0, "Rack::Cors" do
