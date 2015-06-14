@@ -13,7 +13,7 @@ module Api
       end
 
       def index
-        render json: policy_scope(Album), each_serializer: AlbumSerializer
+        render json: policy_scope(Album), each_serializer: AlbumWithImagesSerializer, root: 'albums'
       end
 
       def show

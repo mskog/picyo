@@ -1,11 +1,7 @@
 class AlbumWithImagesSerializer < ActiveModel::Serializer
-  attributes :id, :name, :image_ids
+  attributes :id, :name
 
-  has_many :images, embed_in_root: true
-
-  def image_ids
-    images.map(&:hash_id)
-  end
+  has_many :images, embed: :ids, embed_key: 'hash_id', embed_in_root: true
 
   def id
     object.hash_id
