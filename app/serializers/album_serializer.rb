@@ -6,12 +6,4 @@ class AlbumSerializer < ActiveModel::Serializer
   def id
     object.hash_id
   end
-
-  def ids
-    ['hej']
-  end
-
-  def image_ids
-    images.map(&:hash_id)
-  end
 end
