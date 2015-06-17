@@ -10,7 +10,7 @@ Picyo::Application.routes.draw do
     end
   end
 
-  get '/images/:id', controller: 'raw_images', action: :show, constraints: { id: /.*\..*/ }, as: 'raw_image'
+  get '/:id', controller: 'raw_images', action: :show, constraints: { id: /.*\..*/ }, as: 'raw_image'
 
   resources :images, only: [:show, :index]
   resources :albums, only: [:show]
