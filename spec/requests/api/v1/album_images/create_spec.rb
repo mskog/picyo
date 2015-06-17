@@ -7,14 +7,14 @@ describe "AlbumImages#create", type: :request do
   context "authenticated request" do
     When do
       token_auth
-      post api_v1_album_images_path(album.hash_id, params), {}, @env
+      post api_v1_album_images_path(params), {}, @env
     end
 
     context "creating by url" do
       Given(:fixture){File.new('spec/fixtures/doll.jpg')}
       Given{stub_request(:get, url).to_return(body: fixture.read, headers: {"content_type" => 'image/jpeg'})}
       Given(:url){'http://www.example.com/doll.jpg'}
-      Given(:params){{url: url}}
+      Given(:params){{album_id: album.hash_id, url: url}}
 
       context "with an image that does not exist yet" do
         Given(:expected_image){Image.first}
@@ -28,7 +28,7 @@ describe "AlbumImages#create", type: :request do
 
       context "with async creation" do
         Given{expect(ImageUploadJob).to receive(:perform_later).with(url: url, album_id: album.hash_id)}
-        Given(:params){{url: url, async: 1}}
+        Given(:params){{album_id: album.hash_id, url: url, async: 1}}
         Then{expect(response.status).to eq 200}
       end
 

@@ -4,8 +4,11 @@ module Api
       before_filter :load_image, only: [:show]
 
       def index
-        @images = Album.find_by_hash_id(params[:album_id]).images
-        render json: @images, each_serializer: ImageSerializer
+        @images = AlbumImage
+                            .includes(:image)
+                            .where(album: policy_scope(Album))
+                            .where(id: params[:ids])
+        render json: @images, each_serializer: AlbumImageSerializer
       end
 
       def create

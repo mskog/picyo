@@ -14,7 +14,7 @@ describe "Albums#index", type: :request do
     Given(:other_user){create :user}
     Given!(:other_album){create :album, user: other_user}
     Then{expect(parsed_response['albums'].count).to eq 1}
-    And{expect(parsed_response['albums'].first['image_ids']).to contain_exactly(*album.images.map(&:hash_id))}
+    And{expect(parsed_response['albums'].first['album_image_ids']).to contain_exactly(*album.album_images.map(&:id))}
     And{expect(parsed_response['albums'].first["id"]).to eq album.hash_id}
   end
 end
