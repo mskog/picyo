@@ -20,7 +20,7 @@ describe "Images#create", type: :request do
         Then{expect(Image.count).to eq 1}
         And{expect(expected_image.file_filename).to eq 'doll.jpg'}
         And{expect(parsed_response[:url]).to eq "http://www.example.com/images/#{expected_image.hash_id}"}
-        And{expect(parsed_response[:image_url]).to eq "http://www.example.com/images/#{expected_image.hash_id}.jpg"}
+        And{expect(parsed_response[:image_url]).to eq "http://www.example.com/#{expected_image.hash_id}.jpg"}
         And{expect(parsed_response[:file_size]).to eq 13951}
         And{expect(parsed_response[:file_content_type]).to eq "image/jpeg"}
         And{expect(parsed_response[:width]).to eq 239}

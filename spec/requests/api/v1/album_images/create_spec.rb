@@ -21,7 +21,7 @@ describe "AlbumImages#create", type: :request do
         Then{expect(Image.count).to eq 1}
         And{expect(expected_image.file_filename).to eq 'doll.jpg'}
         And{expect(parsed_response[:url]).to eq "http://www.example.com/images/#{expected_image.hash_id}"}
-        And{expect(parsed_response[:image_url]).to eq "http://www.example.com/images/#{expected_image.hash_id}.jpg"}
+        And{expect(parsed_response[:image_url]).to eq "http://www.example.com/#{expected_image.hash_id}.jpg"}
         And{expect(parsed_response[:id]).to eq expected_image.hash_id}
         And{expect(expected_image.albums).to include album}
       end

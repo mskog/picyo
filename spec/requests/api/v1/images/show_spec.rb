@@ -14,7 +14,7 @@ describe "Images#show", type: :request do
       Given(:hash_id){image.hash_id}
       Then{expect(parsed_response[:id]).to eq image.hash_id}
       And{expect(parsed_response[:url]).to eq "http://www.example.com/images/#{image.hash_id}"}
-      And{expect(parsed_response[:image_url]).to eq "http://www.example.com/images/#{image.hash_id}.jpg"}
+      And{expect(parsed_response[:image_url]).to eq "http://www.example.com/#{image.hash_id}.jpg"}
       And{expect(parsed_response[:file_size]).to eq 13951}
       And{expect(parsed_response[:file_content_type]).to eq "image/jpeg"}
       And{expect(parsed_response[:width]).to eq 239}

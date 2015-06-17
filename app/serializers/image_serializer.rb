@@ -10,6 +10,6 @@ class ImageSerializer < ActiveModel::Serializer
   end
 
   def image_url
-    url_for(controller: '/images', action: 'show', id: object.hash_filename)
+    raw_image_url(object.hash_filename)
   end
 end
