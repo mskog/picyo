@@ -2,18 +2,17 @@ source 'https://rubygems.org'
 ruby '2.2.0'
 
 # Standard Rails gems
-gem 'rails', '4.2.0'
-gem 'jbuilder', '2.2.6'
-gem 'bcrypt', '3.1.9'
+gem 'rails', '4.2.2'
+gem 'bcrypt', '3.1.10'
 
 # PostgreSQL
-gem 'pg', "~> 0.18.1"
+gem 'pg', "~> 0.18.2"
 
 # Decoration
 gem 'draper', '~> 2.1.0'
 
 # Whitespace remover
-gem 'strip_attributes', '~> 1.5.1'
+gem 'strip_attributes', '~> 1.7.0'
 
 # Configuration
 gem 'dotenv-rails', '~> 2.0'
@@ -29,13 +28,13 @@ gem 'refile-s3', git: 'https://github.com/refile/refile-s3'
 gem 'hashids', '~> 1.0.2'
 
 # Image handling
-gem 'fastimage', '~> 1.6.8'
+gem 'fastimage', '~> 1.7.0'
 
 # Redis
 gem 'redis', '~> 3.2.1'
 
 gem 'sinatra', :require => nil
-gem 'sidekiq', '~> 3.3.4'
+gem 'sidekiq', '~> 3.4.0'
 gem 'sidekiq-limit_fetch'
 
 # Authentication and permissions
@@ -47,6 +46,9 @@ gem 'rack-cors', '~> 0.4.0'
 
 # Authorization
 gem 'pundit', '~> 1.0.1'
+
+# Hard version of Rack because..bug in Rails?! http://stackoverflow.com/questions/30924833/rails-server-gives-error-when-i-load-localhost3000
+gem 'rack', '1.6.2'
 
 group :development, :test do
   # gem 'better_errors', '~> 2.1.1'
@@ -67,7 +69,7 @@ group :development, :test do
   gem 'capistrano-rbenv'
 
   # Spring: https://github.com/rails/spring
-  gem 'spring', '1.3.3'
+  gem 'spring', '1.3.6'
   gem "spring-commands-rspec"
 
   # Pry
