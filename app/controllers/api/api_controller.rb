@@ -10,6 +10,7 @@ module Api
 
     rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
     rescue_from ActiveRecord::RecordNotUnique, with: :record_not_unique
+    rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
     private
 
@@ -35,6 +36,10 @@ module Api
 
     def record_not_unique(*)
       render json: {errors: 'ID Already Exists'}, status: :unprocessable_entity
+    end
+
+    def user_not_authorized
+      render json: {errors: 'Unauthorized'}, status: :unauthorized
     end
   end
 end

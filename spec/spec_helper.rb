@@ -6,6 +6,7 @@ require 'rspec/rails'
 require 'rspec-given'
 require 'database_cleaner'
 require 'webmock/rspec'
+require 'pundit/rspec' 
 
 unless ENV['DRB']
   require "codeclimate-test-reporter"

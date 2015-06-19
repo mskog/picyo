@@ -1,4 +1,17 @@
 class AlbumPolicy < ApplicationPolicy
+
+  def show?
+    @user.present? && @record.user == @user
+  end
+
+  def destroy?
+    @user.present? && @record.user == @user
+  end
+
+  def update?
+    @user.present? && @record.user == @user
+  end
+
   class Scope < Scope
     attr_reader :user, :scope
 
