@@ -4,12 +4,19 @@ module Api
       before_filter :load_album, only: [:show]
 
       def create
-        @album = Album.create(album_params)
+        @album = Album.create(create_params)
         if @album.persisted?
           show
         else
           respond_with_failure(@album.errors)
         end
+      end
+
+      def update
+        @album = Album.find_by_hash_id(params[:id])
+        @album.attributes = update_params
+        @album.save!
+        show
       end
 
       def index
@@ -26,8 +33,12 @@ module Api
         @album = Album.find_by_hash_id!(params[:id])
       end
 
-      def album_params
+      def create_params
         params.require(:album).permit(:name).merge(user: current_user)
+      end
+
+      def update_params
+        params.require(:album).permit(:name)
       end
     end
   end
