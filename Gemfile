@@ -47,9 +47,6 @@ gem 'rack-cors', '~> 0.4.0'
 # Authorization
 gem 'pundit', '~> 1.0.1'
 
-# Hard version of Rack because..bug in Rails?! http://stackoverflow.com/questions/30924833/rails-server-gives-error-when-i-load-localhost3000
-gem 'rack', '1.6.2'
-
 group :development, :test do
   # gem 'better_errors', '~> 2.1.1'
   gem 'binding_of_caller', platforms: [:mri_20, :mri_21]
