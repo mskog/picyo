@@ -7,12 +7,6 @@ class Image < ActiveRecord::Base
 
   after_create :add_metadata
 
-  def self.find_or_create_by_url(url, &block)
-    find_or_create_by(original_url: url) do |image|
-      image.remote_file_url = url
-    end
-  end
-
   private
 
   def add_metadata

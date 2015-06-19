@@ -27,29 +27,10 @@ describe Services::CreateImage do
       context "with an album" do
         Given(:params){{url: url, album_id: album.hash_id}}
         Given(:album){create :album}
-        Then{expect(result).to be_a(Image)}
+        Then{expect(result).to be_a(AlbumImage)}
         And{expect(Image.count).to eq 1}
-        And{expect(result.albums).to include album}
-      end
-    end
-
-    context "with an existing image" do
-      context "with no album" do
-        Given!(:image){create :image, original_url: url}
-        Given(:params){{url: url}}
-        Then{expect(result).to be_a(Image)}
-        And{expect(Image.count).to eq 1}
-        And{expect(result).to eq image}
-      end
-
-      context "with an album" do
-        Given!(:image){create :image, original_url: url}
-        Given(:album){create :album}
-        Given(:params){{url: url, album_id: album.hash_id}}
-        Then{expect(result).to be_a(Image)}
-        And{expect(Image.count).to eq 1}
-        And{expect(result).to eq image}
-        And{expect(result.albums).to include album}
+        And{expect(result.album).to eq album}
+        And{expect(result.image.original_url).to eq url}
       end
     end
   end

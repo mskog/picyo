@@ -15,7 +15,7 @@ describe "Images#create", type: :request do
       Given(:url){'http://www.example.com/doll.jpg'}
       Given(:params){{url: url}}
 
-      context "with an image that does not exist yet" do
+      context "with a valid url" do
         Given(:expected_image){Image.first}
         Then{expect(Image.count).to eq 1}
         And{expect(expected_image.file_filename).to eq 'doll.jpg'}
@@ -26,16 +26,6 @@ describe "Images#create", type: :request do
         And{expect(parsed_response[:width]).to eq 239}
         And{expect(parsed_response[:height]).to eq 180}
         And{expect(parsed_response[:id]).to eq expected_image.hash_id}
-      end
-
-      context "with an existing image" do
-        Given(:fixture){File.new('spec/fixtures/doll.jpg')}
-        Given{stub_request(:get, url).to_return(body: fixture.read, headers: {"content_type" => 'image/jpeg'})}
-        Given(:url){'http://www.example.com/doll.jpg'}
-        Given{Image.create!(file: fixture, original_url: url)}
-
-        Given(:expected_image){Image.first}
-        Then{expect(Image.count).to eq 1}
       end
 
       context "with a url that 404s" do

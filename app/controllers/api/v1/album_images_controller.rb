@@ -20,10 +20,14 @@ module Api
       end
 
       def show
-        render json: @image, serializer: ImageSerializer
+        render json: @album_image, serializer: AlbumImageSerializer
       end
 
       private
+
+      def load_image
+        @album_image = AlbumImage.find(params[:id])
+      end
 
       def create_async
         Services::CreateImage.new(create_params).perform_async
@@ -31,11 +35,11 @@ module Api
       end
 
       def create_sync
-        @image = Services::CreateImage.new(params).perform
-        if @image.persisted?
+        @album_image = Services::CreateImage.new(create_params).perform
+        if @album_image.persisted?
           show
         else
-          respond_with_failure(@image.errors)
+          render json: {}, status: 422
         end
       end
 

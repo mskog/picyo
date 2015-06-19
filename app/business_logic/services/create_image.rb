@@ -1,13 +1,18 @@
 module Services
+
+  # TODO This is awful. Fix, remove, nuke from orbit
   class CreateImage
     def initialize(params)
       @params = params
     end
 
     def perform
-      create_image
-      add_image_to_album if @params[:album_id]
-      @image
+      @image = create_image
+      if @params[:album_id] && @image.persisted?
+        add_image_to_album if @params[:album_id]
+      else
+        @image
+      end
     end
 
     def perform_async
@@ -17,19 +22,15 @@ module Services
     private
 
     def create_image
-      @image = Image.find_or_create_by_url(@params[:url])
+      @image = Image.create(remote_file_url: @params[:url], original_url: @params[:url])
     end
 
     def add_image_to_album
-      @image.albums << album unless image_included_in_album?
-    end
-
-    def image_included_in_album?
-      @image.albums.include?(album)
+      @image.album_images.create(image: @image, album: album)
     end
 
     def album
-      Album.find_by_hash_id(@params[:album_id])
+      @album ||= Album.find_by_hash_id(@params[:album_id])
     end
   end
 end
