@@ -1,7 +1,7 @@
 module Api
   module V1
     class AlbumsController < ApiController
-      before_filter :load_album, only: [:show, :destroy]
+      before_filter :load_album, only: [:destroy]
 
       def create
         @album = Album.create(create_params)
@@ -23,7 +23,7 @@ module Api
       def destroy
         authorize @album
         @album.destroy
-        show
+        render json: @album, serializer: AlbumSerializer, root: 'album'
       end
 
       def index
@@ -32,6 +32,7 @@ module Api
       end
 
       def show
+        @album = Album.includes(album_images: [:image]).find_by_hash_id!(params[:id])
         authorize @album
         render json: @album, serializer: AlbumWithImagesSerializer, root: 'album'
       end
