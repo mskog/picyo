@@ -20,7 +20,8 @@ module Api
       end
 
       def index
-        render json: policy_scope(Album), each_serializer: AlbumSerializer, root: 'albums'
+        @albums = policy_scope(Album).order(id: :desc)
+        render json: @albums, each_serializer: AlbumSerializer, root: 'albums'
       end
 
       def show
