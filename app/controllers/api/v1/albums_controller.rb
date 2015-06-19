@@ -27,7 +27,7 @@ module Api
       end
 
       def index
-        @albums = policy_scope(Album).order(id: :desc)
+        @albums = policy_scope(Album).includes(:album_images).order(id: :desc)
         render json: @albums, each_serializer: AlbumSerializer, root: 'albums'
       end
 
