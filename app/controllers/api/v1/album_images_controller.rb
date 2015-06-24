@@ -4,7 +4,7 @@ module Api
       before_filter :load_image, only: [:show]
 
       def index
-        album = Album.find_by_hash_id(params[:album_id])
+        album = Album.includes(album_images: [:image]).find_by_hash_id(params[:album_id])
         authorize album, :show?
         @images = album.album_images
         render json: @images, each_serializer: AlbumImageSerializer
