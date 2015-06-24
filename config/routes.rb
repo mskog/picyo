@@ -5,8 +5,9 @@ Picyo::Application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :images, only: [:create, :show]
-      resources :albums, only: [:create, :show, :index, :update, :destroy]
-      resources :album_images, only: [:index, :create, :show]
+      resources :albums, only: [:create, :show, :index, :update, :destroy] do
+        resources :images, only: [:index, :create, :show], controller: 'album_images'
+      end
     end
   end
 
