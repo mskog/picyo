@@ -5,6 +5,7 @@ module Api
 
       def index
         album = Album.find(params[:album_id])
+        authorize album, :show?
         @images = album.album_images
         render json: @images, each_serializer: AlbumImageSerializer
       end
