@@ -3,7 +3,7 @@ require 'base64'
 require "refile/s3"
 
 class RedisProxyS3Store < Refile::S3
-  TTL = 3600*24
+  TTL = 3600*24*30
 
   def upload(uploadable)
     file = super
