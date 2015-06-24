@@ -2,11 +2,12 @@ require 'spec_helper'
 
 describe "AlbumImages#create", type: :request do
   Given(:parsed_response){JSON.parse(response.body).with_indifferent_access[:album_image]}
-  Given(:album){create :album}
+  Given(:user){create :user}
+  Given(:album){create :album, user: user}
 
   context "authenticated request" do
     When do
-      token_auth
+      token_auth(user)
       post api_v1_album_images_path(params), {}, @env
     end
 
@@ -35,6 +36,11 @@ describe "AlbumImages#create", type: :request do
         Given{stub_request(:get, url).to_return(status: 404)}
         Then{expect(Image.count).to eq 0}
         And{expect(response.status).to eq 422}
+      end
+
+      context "with a user that is not the owner of the album" do
+        Given(:album){create :album, user: create(:user)}
+        Then{expect(response.status).to eq 401}
       end
     end
   end

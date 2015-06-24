@@ -5,7 +5,7 @@ describe "AlbumImages#index", type: :request do
 
   When do
     token_auth(user)
-    get api_v1_album_images_path(album.id), {}, @env
+    get api_v1_album_images_path(album.hash_id), {}, @env
   end
 
   Given(:parsed_response){JSON.parse(response.body).with_indifferent_access}
