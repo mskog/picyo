@@ -2,7 +2,7 @@ class AlbumSerializer < ActiveModel::Serializer
   attributes :id, :name, :links
 
   def links
-    {album_images: api_v1_album_images_url(object.id)}
+    {album_images: api_v1_album_images_url(id)}
   end
 
   def id

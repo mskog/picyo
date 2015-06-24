@@ -14,6 +14,6 @@ describe "Albums#index", type: :request do
     Given(:other_user){create :user}
     Given!(:other_album){create :album, user: other_user}
     Then{expect(parsed_response['albums'].count).to eq 1}
-    And{expect(parsed_response['albums'].first["links"]['album_images']).to eq api_v1_album_images_url(album.id)}
+    And{expect(parsed_response['albums'].first["links"]['album_images']).to eq api_v1_album_images_url(album.hash_id)}
   end
 end
