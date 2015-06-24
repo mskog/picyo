@@ -27,12 +27,12 @@ module Api
       end
 
       def index
-        @albums = policy_scope(Album).includes(:album_images).order(id: :desc)
+        @albums = policy_scope(Album).order(id: :desc)
         render json: @albums, each_serializer: AlbumSerializer, root: 'albums'
       end
 
       def show
-        @album = Album.includes(album_images: [:image]).find_by_hash_id!(params[:id])
+        @album = Album.eager_load(album_images: [:image]).find_by_hash_id!(params[:id])
         authorize @album
         render json: @album, serializer: AlbumWithImagesSerializer, root: 'album'
       end
