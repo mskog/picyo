@@ -8,6 +8,7 @@ Picyo::Application.routes.draw do
       resources :albums, only: [:create, :show, :index, :update, :destroy] do
         resources :images, only: [:index, :create], controller: 'album_images'
       end
+      resources :album_images, only: [:index, :create]
     end
   end
 
