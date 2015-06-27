@@ -1,5 +1,5 @@
 class AlbumImageSerializer < ActiveModel::Serializer
-  attributes :id, :image_url, :image_height, :image_width, :image_id
+  attributes :id, :image_url, :image_height, :image_width, :image_id, :image_file_content_type
 
   def image_url
     raw_image_url(object.image.hash_filename)
@@ -15,5 +15,9 @@ class AlbumImageSerializer < ActiveModel::Serializer
 
   def image_width
     object.image.width
+  end
+
+  def image_file_content_type
+    object.image.file_content_type
   end
 end
