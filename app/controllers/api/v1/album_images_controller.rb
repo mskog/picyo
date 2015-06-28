@@ -24,6 +24,14 @@ module Api
         render json: @album_image, serializer: AlbumImageSerializer
       end
 
+      def destroy
+        @album_image = AlbumImage.find(params[:id])
+        album = Album.find(@album_image.album_id)
+        authorize album, :update?
+        @album_image.destroy
+        show
+      end
+
       private
 
       def load_image
