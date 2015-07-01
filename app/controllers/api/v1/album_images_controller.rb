@@ -21,6 +21,8 @@ module Api
       end
 
       def show
+        album = Album.find(@album_image.album_id)
+        authorize album, :show?
         render json: @album_image, serializer: AlbumImageSerializer
       end
 
