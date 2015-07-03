@@ -159,6 +159,9 @@ GEM
     jmespath (1.0.2)
       multi_json (~> 1.0)
     json (1.8.3)
+    kaminari (0.16.3)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     listen (2.10.1)
       celluloid (~> 0.16.0)
       rb-fsevent (>= 0.9.3)
@@ -343,6 +346,7 @@ DEPENDENCIES
   guard-rails (~> 0.7.0)
   guard-rspec (~> 4.5.0)
   hashids (~> 1.0.2)
+  kaminari (~> 0.16.3)
   mascherano
   pg (~> 0.18.2)
   pry-rails (~> 0.3.2)

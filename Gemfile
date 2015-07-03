@@ -47,6 +47,9 @@ gem 'rack-cors', '~> 0.4.0'
 # Authorization
 gem 'pundit', '~> 1.0.1'
 
+# Pagination
+gem 'kaminari', '~> 0.16.3'
+
 group :development, :test do
   # gem 'better_errors', '~> 2.1.1'
   gem 'binding_of_caller', platforms: [:mri_20, :mri_21]

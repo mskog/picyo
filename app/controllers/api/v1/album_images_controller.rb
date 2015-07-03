@@ -6,8 +6,11 @@ module Api
       def index
         album = Album.eager_load(album_images: [:image]).find_by_hash_id(params[:album_id])
         authorize album, :show?
-        @images = album.album_images
-        render json: @images, each_serializer: AlbumImageSerializer
+        if params[:page]
+          index_paginated(album)
+        else
+          index_full(album)
+        end
       end
 
       def create
@@ -35,6 +38,17 @@ module Api
       end
 
       private
+
+      def index_full(album)
+        @images = album.album_images
+        render json: @images, each_serializer: AlbumImageSerializer
+      end
+
+      def index_paginated(album)
+        per_page = params[:per_page].presence || 25
+        @images = album.album_images.page(params[:page]).per(per_page)
+        render json: @images, each_serializer: AlbumImageSerializer, meta: {total_pages: @images.num_pages}
+      end
 
       def load_image
         @album_image = AlbumImage.find(params[:id])
