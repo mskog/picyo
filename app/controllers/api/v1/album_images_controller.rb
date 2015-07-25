@@ -16,7 +16,10 @@ module Api
       def create
         album = Album.find_by_hash_id(params[:album_id])
         authorize album, :update?
-        if params[:async]
+        if params[:image_id]
+          @album_image = album.album_images.create(image: Image.find_by_hash_id(params[:image_id]))
+          show
+        elsif params[:async]
           create_async
         else
           create_sync

@@ -42,5 +42,12 @@ describe "AlbumImages#create", type: :request do
         Then{expect(response.status).to eq 401}
       end
     end
+
+    context "creating by image id" do
+      Given(:image){create :image}
+      Given(:params){{album_id: album.hash_id, image_id: image.hash_id}}
+      Then{expect(parsed_response[:image_id]).to eq image.hash_id}
+      And{expect(image.reload.albums).to include album}
+    end
   end
 end
