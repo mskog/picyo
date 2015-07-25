@@ -17,7 +17,7 @@ describe "AlbumImages#index", type: :request do
       Given(:album){create :album, :with_images, user: user}
 
       Then{expect(parsed_response[:album_images].map{|ai| ai['id']}).to eq album.album_images.map(&:id)}
-      And{expect(parsed_response[:album_images].first[:image_file_content_type]).to eq 'image/jpeg'}
+      And{expect(parsed_response[:images].first[:file_content_type]).to eq 'image/jpeg'}
     end
 
     context "with pagination" do
