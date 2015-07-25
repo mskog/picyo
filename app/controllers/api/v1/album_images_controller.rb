@@ -14,10 +14,10 @@ module Api
       end
 
       def create
-        album = Album.find_by_hash_id(params[:album_id])
+        album = Album.find_by_hash_id(album_id)
         authorize album, :update?
-        if params[:image_id]
-          @album_image = album.album_images.create(image: Image.find_by_hash_id(params[:image_id]))
+        if album_image_params[:image_id]
+          @album_image = album.album_images.create(image: Image.find_by_hash_id(album_image_params[:image_id]))
           show
         elsif params[:async]
           create_async
@@ -41,6 +41,14 @@ module Api
       end
 
       private
+
+      def album_id
+        album_image_params[:album_id]
+      end
+
+      def album_image_params
+        params.fetch(:album_image, params)
+      end
 
       def index_full(album)
         @images = album.album_images
