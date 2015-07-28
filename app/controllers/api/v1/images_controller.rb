@@ -4,7 +4,7 @@ module Api
       before_filter :load_image, only: [:show]
 
       def create
-        @image = Services::CreateImage.new(params).perform
+        @image = Services::CreateImage.new(image_params).perform
         if @image.persisted?
           show
         else
@@ -17,6 +17,10 @@ module Api
       end
 
       private
+
+      def image_params
+        params.fetch(:image, params)
+      end
 
       def load_image
         @image = Image.find_by_hash_id!(params[:id])

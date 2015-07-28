@@ -6,6 +6,10 @@ class Album < ActiveRecord::Base
 
   after_create :add_hash_id
 
+  def add_image(image)
+    album_images.build(image: image)
+  end
+
   private
 
   def add_hash_id

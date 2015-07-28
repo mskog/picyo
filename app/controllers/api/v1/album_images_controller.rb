@@ -14,12 +14,8 @@ module Api
       end
 
       def create
-        album = Album.find_by_hash_id(album_id)
         authorize album, :update?
-        if album_image_params[:image_id]
-          @album_image = album.album_images.create(image: Image.find_by_hash_id(album_image_params[:image_id]))
-          show
-        elsif params[:async]
+        if params[:async]
           create_async
         else
           create_sync
@@ -50,6 +46,10 @@ module Api
         params.fetch(:album_image, params)
       end
 
+      def image_params
+        album_image_params.fetch(:image, album_image_params)
+      end
+
       def index_full(album)
         @images = album.album_images
         render json: @images, each_serializer: AlbumImageSerializer
@@ -71,12 +71,22 @@ module Api
       end
 
       def create_sync
-        @album_image = Services::CreateImage.new(create_params).perform
+        if image_params[:url]
+          image = Image.from_url(image_params[:url])
+        elsif image_params[:image_id]
+          image = Image.find_by_hash_id(image_params[:image_id])
+        end
+        @album_image = album.add_image image
+        @album_image.save
         if @album_image.persisted?
           show
         else
           render json: {}, status: 422
         end
+      end
+
+      def album
+        @album ||= Album.find_by_hash_id(album_id)
       end
 
       def create_params

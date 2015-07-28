@@ -7,6 +7,10 @@ class Image < ActiveRecord::Base
 
   after_create :add_metadata
 
+  def self.from_url(url, **params)
+    new remote_file_url: url, original_url: url, **params
+  end
+
   private
 
   def add_metadata

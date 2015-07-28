@@ -25,6 +25,15 @@ describe "AlbumImages#create", type: :request do
         And{expect(expected_image.albums).to include album}
       end
 
+      context "with an image that does not exist yet, nested parameters" do
+        Given(:params){{album_id: album.hash_id, image: {url: url}}}
+        Given(:expected_image){Image.first}
+        Then{expect(Image.count).to eq 1}
+        And{expect(expected_image.file_filename).to eq 'doll.jpg'}
+        And{expect(parsed_response[:image_id]).to eq expected_image.hash_id}
+        And{expect(expected_image.albums).to include album}
+      end
+
       context "with async creation" do
         Given{expect(ImageUploadJob).to receive(:perform_later).with(url: url, album_id: album.hash_id)}
         Given(:params){{album_id: album.hash_id, url: url, async: 1}}

@@ -28,6 +28,11 @@ describe "Images#create", type: :request do
         And{expect(parsed_response[:id]).to eq expected_image.hash_id}
       end
 
+      context "with nested parameters" do
+        Given(:params){{image: {url: url}}}
+        Then{expect(Image.count).to eq 1}
+      end
+
       context "with a url that 404s" do
         Given{stub_request(:get, url).to_return(status: 404)}
         Then{expect(Image.count).to eq 0}
