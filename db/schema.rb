@@ -11,14 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150604185602) do
+ActiveRecord::Schema.define(version: 20150728132638) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "album_images", force: :cascade do |t|
-    t.integer "album_id"
-    t.integer "image_id"
+    t.integer  "album_id"
+    t.integer  "image_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "album_images", ["album_id"], name: "index_album_images_on_album_id", using: :btree
