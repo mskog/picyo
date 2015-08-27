@@ -55,7 +55,7 @@ group :development, :test do
   gem 'binding_of_caller', platforms: [:mri_20, :mri_21]
   gem 'guard-rails', '~> 0.7'
   gem 'guard-rspec', '~> 4.6'
-  gem 'byebug', '6.0.0'
+  gem 'byebug', '~> 6.0'
   gem 'factory_girl_rails', '~> 4.5.0'
   gem 'faker', git: 'https://github.com/joenas/faker'
   gem 'rspec-rails', '~> 3.3'
