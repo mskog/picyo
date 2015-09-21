@@ -6,7 +6,7 @@ gem 'rails', '4.2.4'
 gem 'bcrypt', '3.1.10'
 
 # PostgreSQL
-gem 'pg', "~> 0.18.2"
+gem 'pg', "~> 0.18.3"
 
 # Decoration
 gem 'draper', '~> 2.1.0'
@@ -34,7 +34,7 @@ gem 'fastimage', '~> 1.7.0'
 gem 'redis', '~> 3.2.1'
 
 gem 'sinatra', :require => nil
-gem 'sidekiq', '~> 3.4.0'
+gem 'sidekiq', '~> 3.5.0'
 gem 'sidekiq-limit_fetch'
 
 # Authentication and permissions
@@ -61,7 +61,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.3'
   gem 'rspec-given', '~> 3.7'
   gem 'shoulda-matchers', '~> 2.8.0'
-  gem 'database_cleaner', '~> 1.4.0'
+  gem 'database_cleaner', '~> 1.5.0'
 
   gem 'capistrano', '~> 3.4.0'
   gem 'mascherano'
@@ -69,7 +69,7 @@ group :development, :test do
   gem 'capistrano-rbenv'
 
   # Spring: https://github.com/rails/spring
-  gem 'spring', '1.3.6'
+  gem 'spring', '1.4.0'
   gem "spring-commands-rspec"
 
   # Pry
