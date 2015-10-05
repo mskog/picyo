@@ -304,8 +304,8 @@ GEM
     rspec-support (3.3.0)
     safe_yaml (1.0.4)
     shellany (0.0.1)
-    shoulda-matchers (2.8.0)
-      activesupport (>= 3.0.0)
+    shoulda-matchers (3.0.0)
+      activesupport (>= 4.0.0)
     sidekiq (3.5.0)
       celluloid (~> 0.17.0)
       connection_pool (~> 2.2, >= 2.2.0)
@@ -394,7 +394,7 @@ DEPENDENCIES
   refile-s3!
   rspec-given (~> 3.7)
   rspec-rails (~> 3.3)
-  shoulda-matchers (~> 2.8.0)
+  shoulda-matchers (~> 3.0)
   sidekiq (~> 3.5.0)
   sidekiq-limit_fetch
   simple_token_authentication (~> 1.10)

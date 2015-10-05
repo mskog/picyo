@@ -60,7 +60,7 @@ group :development, :test do
   gem 'faker', git: 'https://github.com/joenas/faker'
   gem 'rspec-rails', '~> 3.3'
   gem 'rspec-given', '~> 3.7'
-  gem 'shoulda-matchers', '~> 2.8.0'
+  gem 'shoulda-matchers', '~> 3.0'
   gem 'database_cleaner', '~> 1.5.0'
 
   gem 'capistrano', '~> 3.4.0'
