@@ -34,7 +34,7 @@ gem 'fastimage', '~> 1.7.0'
 gem 'redis', '~> 3.2.1'
 
 gem 'sinatra', :require => nil
-gem 'sidekiq', '~> 3.5.0'
+gem 'sidekiq', '~> 3.5.3'
 gem 'sidekiq-limit_fetch'
 
 # Authentication and permissions
@@ -55,13 +55,13 @@ group :development, :test do
   gem 'binding_of_caller', platforms: [:mri_20, :mri_21]
   gem 'guard-rails', '~> 0.7'
   gem 'guard-rspec', '~> 4.6'
-  gem 'byebug', '~> 6.0'
+  gem 'byebug', '~> 8.0'
   gem 'factory_girl_rails', '~> 4.5.0'
   gem 'faker', git: 'https://github.com/joenas/faker'
   gem 'rspec-rails', '~> 3.3'
   gem 'rspec-given', '~> 3.7'
   gem 'shoulda-matchers', '~> 3.0'
-  gem 'database_cleaner', '~> 1.5.0'
+  gem 'database_cleaner', '~> 1.5'
 
   gem 'capistrano', '~> 3.4.0'
   gem 'mascherano'
@@ -77,6 +77,6 @@ group :development, :test do
 end
 
 group :test do
-  gem 'webmock', '~> 1.21.0'
+  gem 'webmock', '~> 1.22'
   gem "codeclimate-test-reporter"
 end

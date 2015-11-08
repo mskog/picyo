@@ -7,9 +7,9 @@ GIT
 
 GIT
   remote: https://github.com/refile/refile
-  revision: 07165d5adc03e8c83b2014bcf0d4ae1d4c56e440
+  revision: 68987fe98f1432dc9e6fa532940331f77193cfc8
   specs:
-    refile (0.6.1)
+    refile (0.6.2)
       mime-types
       rest-client (~> 1.8)
       sinatra (~> 1.4.5)
@@ -64,17 +64,17 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.3.8)
     arel (6.0.3)
-    aws-sdk (2.1.23)
-      aws-sdk-resources (= 2.1.23)
-    aws-sdk-core (2.1.23)
+    aws-sdk (2.1.35)
+      aws-sdk-resources (= 2.1.35)
+    aws-sdk-core (2.1.35)
       jmespath (~> 1.0)
-    aws-sdk-resources (2.1.23)
-      aws-sdk-core (= 2.1.23)
+    aws-sdk-resources (2.1.35)
+      aws-sdk-core (= 2.1.35)
     bcrypt (3.1.10)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     builder (3.2.2)
-    byebug (6.0.2)
+    byebug (8.0.1)
     capistrano (3.4.0)
       i18n
       rake (>= 10.0.0)
@@ -82,52 +82,28 @@ GEM
     capistrano-bundler (1.1.4)
       capistrano (~> 3.1)
       sshkit (~> 1.2)
-    capistrano-rails (1.1.3)
+    capistrano-rails (1.1.5)
       capistrano (~> 3.1)
       capistrano-bundler (~> 1.1)
     capistrano-rbenv (2.0.3)
       capistrano (~> 3.1)
       sshkit (~> 1.3)
-    celluloid (0.17.1.2)
-      bundler
+    celluloid (0.17.2)
       celluloid-essentials
       celluloid-extras
       celluloid-fsm
       celluloid-pool
       celluloid-supervision
-      dotenv
-      nenv
-      rspec-logsplit (>= 0.1.2)
       timers (>= 4.1.1)
-    celluloid-essentials (0.20.2.1)
-      bundler
-      dotenv
-      nenv
-      rspec-logsplit (>= 0.1.2)
+    celluloid-essentials (0.20.5)
       timers (>= 4.1.1)
-    celluloid-extras (0.20.1)
-      bundler
-      dotenv
-      nenv
-      rspec-logsplit (>= 0.1.2)
+    celluloid-extras (0.20.5)
       timers (>= 4.1.1)
-    celluloid-fsm (0.20.1)
-      bundler
-      dotenv
-      nenv
-      rspec-logsplit (>= 0.1.2)
+    celluloid-fsm (0.20.5)
       timers (>= 4.1.1)
-    celluloid-pool (0.20.1)
-      bundler
-      dotenv
-      nenv
-      rspec-logsplit (>= 0.1.2)
+    celluloid-pool (0.20.5)
       timers (>= 4.1.1)
-    celluloid-supervision (0.20.1.1)
-      bundler
-      dotenv
-      nenv
-      rspec-logsplit (>= 0.1.2)
+    celluloid-supervision (0.20.5)
       timers (>= 4.1.1)
     codeclimate-test-reporter (0.4.8)
       simplecov (>= 0.7.1, < 1.0.0)
@@ -136,7 +112,7 @@ GEM
     connection_pool (2.2.0)
     crack (0.4.2)
       safe_yaml (~> 1.0.0)
-    database_cleaner (1.5.0)
+    database_cleaner (1.5.1)
     debug_inspector (0.0.2)
     devise (3.5.2)
       bcrypt (~> 3.0)
@@ -147,7 +123,7 @@ GEM
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
     docile (1.1.5)
-    domain_name (0.5.24)
+    domain_name (0.5.25)
       unf (>= 0.0.5, < 1.0.0)
     dotenv (2.0.2)
     dotenv-rails (2.0.2)
@@ -189,6 +165,7 @@ GEM
       guard (~> 2.1)
       guard-compat (~> 1.1)
       rspec (>= 2.99.0, < 4.0)
+    hashdiff (0.2.3)
     hashids (1.0.2)
     hitimes (1.2.3)
     http-cookie (1.0.2)
@@ -199,7 +176,7 @@ GEM
     kaminari (0.16.3)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
-    listen (3.0.3)
+    listen (3.0.4)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
     loofah (2.0.3)
@@ -212,12 +189,12 @@ GEM
     method_source (0.8.2)
     mime-types (2.6.2)
     mini_portile (0.6.2)
-    minitest (5.8.0)
+    minitest (5.8.2)
     nenv (0.2.0)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
-    net-ssh (2.9.2)
-    netrc (0.10.3)
+    net-ssh (3.0.1)
+    netrc (0.11.0)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
     notiffany (0.0.8)
@@ -225,7 +202,7 @@ GEM
       shellany (~> 0.0)
     orm_adapter (0.5.0)
     pg (0.18.3)
-    pry (0.10.1)
+    pry (0.10.3)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
@@ -289,7 +266,6 @@ GEM
     rspec-given (3.7.1)
       given_core (= 3.7.1)
       rspec (>= 2.14.0)
-    rspec-logsplit (0.1.3)
     rspec-mocks (3.3.2)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.3.0)
@@ -304,10 +280,10 @@ GEM
     rspec-support (3.3.0)
     safe_yaml (1.0.4)
     shellany (0.0.1)
-    shoulda-matchers (3.0.0)
+    shoulda-matchers (3.0.1)
       activesupport (>= 4.0.0)
-    sidekiq (3.5.0)
-      celluloid (~> 0.17.0)
+    sidekiq (3.5.3)
+      celluloid (~> 0.17.2)
       connection_pool (~> 2.2, >= 2.2.0)
       json (~> 1.0)
       redis (~> 3.2, >= 3.2.1)
@@ -332,8 +308,8 @@ GEM
     spring (1.4.0)
     spring-commands-rspec (1.0.4)
       spring (>= 0.9.1)
-    sprockets (3.3.4)
-      rack (~> 1.0)
+    sprockets (3.4.0)
+      rack (> 1, < 3)
     sprockets-rails (2.3.3)
       actionpack (>= 3.0)
       activesupport (>= 3.0)
@@ -356,9 +332,10 @@ GEM
     unf_ext (0.0.7.1)
     warden (1.2.3)
       rack (>= 1.0)
-    webmock (1.21.0)
+    webmock (1.22.3)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
+      hashdiff
 
 PLATFORMS
   ruby
@@ -367,12 +344,12 @@ DEPENDENCIES
   active_model_serializers (~> 0.9.3)
   bcrypt (= 3.1.10)
   binding_of_caller
-  byebug (~> 6.0)
+  byebug (~> 8.0)
   capistrano (~> 3.4.0)
   capistrano-rails
   capistrano-rbenv
   codeclimate-test-reporter
-  database_cleaner (~> 1.5.0)
+  database_cleaner (~> 1.5)
   devise (~> 3.5)
   dotenv-rails (~> 2.0)
   draper (~> 2.1.0)
@@ -395,11 +372,11 @@ DEPENDENCIES
   rspec-given (~> 3.7)
   rspec-rails (~> 3.3)
   shoulda-matchers (~> 3.0)
-  sidekiq (~> 3.5.0)
+  sidekiq (~> 3.5.3)
   sidekiq-limit_fetch
   simple_token_authentication (~> 1.10)
   sinatra
   spring (= 1.4.0)
   spring-commands-rspec
   strip_attributes (~> 1.7.0)
-  webmock (~> 1.21.0)
+  webmock (~> 1.22)
