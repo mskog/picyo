@@ -2,11 +2,11 @@ source 'https://rubygems.org'
 ruby '2.2.0'
 
 # Standard Rails gems
-gem 'rails', '4.2.4'
+gem 'rails', '4.2.5'
 gem 'bcrypt', '3.1.10'
 
 # PostgreSQL
-gem 'pg', "~> 0.18.3"
+gem 'pg', "~> 0.18.4"
 
 # Decoration
 gem 'draper', '~> 2.1.0'
@@ -28,18 +28,18 @@ gem 'refile-s3', git: 'https://github.com/refile/refile-s3'
 gem 'hashids', '~> 1.0.2'
 
 # Image handling
-gem 'fastimage', '~> 1.7.0'
+gem 'fastimage', '~> 1.8.0'
 
 # Redis
-gem 'redis', '~> 3.2.1'
+gem 'redis', '~> 3.2.2'
 
 gem 'sinatra', :require => nil
-gem 'sidekiq', '~> 3.5.3'
+gem 'sidekiq', '~> 4'
 gem 'sidekiq-limit_fetch'
 
 # Authentication and permissions
 gem 'devise', '~> 3.5'
-gem 'simple_token_authentication', '~> 1.10'
+gem 'simple_token_authentication', '~> 1.10.1'
 
 # CORS
 gem 'rack-cors', '~> 0.4.0'
@@ -58,7 +58,7 @@ group :development, :test do
   gem 'byebug', '~> 8.0'
   gem 'factory_girl_rails', '~> 4.5.0'
   gem 'faker', git: 'https://github.com/joenas/faker'
-  gem 'rspec-rails', '~> 3.3'
+  gem 'rspec-rails', '~> 3.4'
   gem 'rspec-given', '~> 3.7'
   gem 'shoulda-matchers', '~> 3.0'
   gem 'database_cleaner', '~> 1.5'
@@ -69,7 +69,7 @@ group :development, :test do
   gem 'capistrano-rbenv'
 
   # Spring: https://github.com/rails/spring
-  gem 'spring', '1.4.0'
+  gem 'spring', '1.4.3'
   gem "spring-commands-rspec"
 
   # Pry
