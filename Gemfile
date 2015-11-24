@@ -69,7 +69,7 @@ group :development, :test do
   gem 'capistrano-rbenv'
 
   # Spring: https://github.com/rails/spring
-  gem 'spring', '1.4.3'
+  gem 'spring', '1.4.4'
   gem "spring-commands-rspec"
 
   # Pry
