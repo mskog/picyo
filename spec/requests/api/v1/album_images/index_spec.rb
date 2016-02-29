@@ -16,7 +16,7 @@ describe "AlbumImages#index", type: :request do
       Given(:user){create :user}
       Given(:album){create :album, :with_images, user: user}
 
-      Then{expect(parsed_response[:album_images].map{|ai| ai['id']}).to eq album.album_images.map(&:id)}
+      Then{expect(parsed_response[:album_images].map{|ai| ai['id']}).to contain_exactly *album.album_images.map(&:id)}
       And{expect(parsed_response[:images].first[:file_content_type]).to eq 'image/jpeg'}
     end
 
