@@ -2,8 +2,8 @@ source 'https://rubygems.org'
 ruby '2.2.0'
 
 # Standard Rails gems
-gem 'rails', '4.2.5.1'
-gem 'bcrypt', '3.1.10'
+gem 'rails', '4.2.6'
+gem 'bcrypt', '3.1.11'
 
 # PostgreSQL
 gem 'pg', "~> 0.18.4"
