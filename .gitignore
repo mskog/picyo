@@ -106,4 +106,4 @@ public/sitemap*
 .env
 uploads
 
-Vagrantfile
+docker-compose.yml
