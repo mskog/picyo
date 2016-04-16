@@ -104,6 +104,7 @@ public/sitemap*
 # Ignore application configuration
 /config/application.yml
 .env
+.env.local
 uploads
 
 docker-compose.yml
