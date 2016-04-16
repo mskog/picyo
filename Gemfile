@@ -28,7 +28,7 @@ gem 'refile-s3', git: 'https://github.com/refile/refile-s3'
 gem 'hashids', '~> 1.0.2'
 
 # Image handling
-gem 'fastimage', '~> 1.8'
+gem 'fastimage', '~> 2.0'
 
 # Redis
 gem 'redis', '~> 3.2.2'
@@ -56,20 +56,20 @@ group :development, :test do
   gem 'guard-rails', '~> 0.7'
   gem 'guard-rspec', '~> 4.6'
   gem 'byebug', '~> 8.2'
-  gem 'factory_girl_rails', '~> 4.6.0'
+  gem 'factory_girl_rails', '~> 4.7'
   gem 'faker', git: 'https://github.com/joenas/faker'
   gem 'rspec-rails', '~> 3.4'
   gem 'rspec-given', '~> 3.8'
   gem 'shoulda-matchers', '~> 3.1'
   gem 'database_cleaner', '~> 1.5'
 
-  gem 'capistrano', '~> 3.4.0'
+  gem 'capistrano', '~> 3.4.1'
   gem 'mascherano'
   gem "capistrano-rails"
   gem 'capistrano-rbenv'
 
   # Spring: https://github.com/rails/spring
-  gem 'spring', '1.6.4'
+  gem 'spring', '1.7.1'
   gem "spring-commands-rspec"
 
   # Pry
